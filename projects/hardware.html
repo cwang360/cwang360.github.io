@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cynthia Wang | Projects</title>
-	  <script src="https://use.fontawesome.com/d1341f9b7a.js"></script> <link rel="stylesheet" href="style.css">
+	  <script src="https://use.fontawesome.com/d1341f9b7a.js"></script> 
     <link href="../style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="../att/icon2.png">
   </head>
-  <body>
+  <body onload="setup()">
+    <script src="script.js"></script>
 	<div id="mySidenav" class="sidenav">
 		<a href="../index.html" class="unselected" id="home">Home</a>
 		<a href="../about/about.html" class="unselected" id="about">About</a>
@@ -23,68 +24,78 @@
 	<div class="box"> 
         <h1>Projects | Hardware</h1> 
         <hr>
-        <h2>PCB Design</h2>
-        <p>During my first semester at Georgia Tech, I attended workshops at The Hive, an 
-          ECE makerspace at Georgia Tech, to learn how to fabricate PCBs. I learned how to use
-          about the entire fabrication process, from plotting to electroplating, with the following
-          equipment: LPKF ProtoMat S103 (“PCB plotter”), LPKF ProtoLaser U4 (“PCB laser”), and
-          PKF Contac S4 (“PCB electroplater”). 
+        <div class="tab">
+          <button class=" tablinks"  onclick="openFile(event, 'pcb')" id="defaultOpen">PCB Design</button>
+          <button class=" tablinks" onclick="openFile(event, 'arduino')">Arduino Projects</button>
+        </div>
+        <div class="inner-box" id="pcb">
+          <h2>PCB Design</h2>
+          <p>During my first semester at Georgia Tech, I attended workshops at The Hive, an 
+            ECE makerspace at Georgia Tech, to learn how to fabricate PCBs. I learned how to use
+            about the entire fabrication process, from plotting to electroplating, with the following
+            equipment: LPKF ProtoMat S103 (“PCB plotter”), LPKF ProtoLaser U4 (“PCB laser”), and
+            PKF Contac S4 (“PCB electroplater”). 
+          </p>
+          <p>  
+            I also followed tutorials to learn how to use EAGLE to design PCBs. The first PCB I learned to 
+            design was a 2-layer "blinky board" PCB, with two LEDs that blink back and forth using a 555
+            timer. With the help of <a href="https://www.youtube.com/watch?v=1AXwjZoyNno">Jeremy Blum's YouTube tutorials</a>, I 
+            first made a schematic of the circuit, then designed the board layout.
+          </p>
+          <table>
+            <tr>
+                <td><img src="att/blinky.PNG" style="width:90%"></td>
+                <td><img src="att/blinky2.PNG" style="width:90%"></td>
+            </tr>
+        </table>
+        <p>
+          I had no experience with designing PCBs before, so I was able to gain a lot of knowledge from the tutorials. 
+          I started with learning the basic structure/material composition of a PCB and how it works. Then, I learned 
+          how to use software to draw a schematic. This includes loading a library of footprints into EAGLE, choosing 
+          the right footprints, adding names and values to the parts, and naming unconnected wires to connect them. For 
+          the PCB layout, I learned about the different layers of the PCB, creating ground and power buses, adding vias,
+           ratsnest and auto-routing functions in EAGLE, and manual routing. I also learned how to run EAGLE’s Design Rule 
+           Check to ensure that a PCB is ready for manufacturing. Finally, I learned how to generate a bill of materials 
+           for the PCB components, as well as gerber files for fabrication.
         </p>
-        <p>  
-          I also followed tutorials to learn how to use EAGLE to design PCBs. The first PCB I learned to 
-          design was a 2-layer "blinky board" PCB, with two LEDs that blink back and forth using a 555
-          timer. With the help of <a href="https://www.youtube.com/watch?v=1AXwjZoyNno">Jeremy Blum's YouTube tutorials</a>, I 
-          first made a schematic of the circuit, then designed the board layout.
+        <p>To practice using EAGLE, I converted a breadboard circuit of a 4-state finite state machine (FSM) that 
+          I made for one of my classes into a PCB design. 
         </p>
+        <p>The two images below show the original FSM diagram, FSM state table, and breadboard circuit I made for one of 
+          my Digital System Design labs. The FSM is implemented in the circuit using a D-type flip flop IC, a 3-by-8 decoder IC, 
+          and a NAND gate IC. Digital I/O reading and writing is controlled by an external data acquisition device.</p>
+        <img src="att/fsm.PNG" style="width:90%">
+        <img src="att/fsm4.jpg" style="width:90%">
+        <p>Below is the circuit implemented as an EAGLE schematic and PCB design. A sliding switch is used to control the input for
+          the FSM, LEDs are used to indicate the current state ID, and a button switch is used to simulate each clock cycle.</p>
+        <img src="att/fsm2.PNG" style="width:94%">
         <table>
           <tr>
-              <td><img src="att/blinky.PNG" style="width:90%"></td>
-              <td><img src="att/blinky2.PNG" style="width:90%"></td>
+            <td style="width:50%"><img src="att/fsm3.PNG" style="width:90%"></td>
+            <td><img src="att/fsm5.PNG" style="width:90%"></td>
           </tr>
-      </table>
-      <p>
-        I had no experience with designing PCBs before, so I was able to gain a lot of knowledge from the tutorials. 
-        I started with learning the basic structure/material composition of a PCB and how it works. Then, I learned 
-        how to use software to draw a schematic. This includes loading a library of footprints into EAGLE, choosing 
-        the right footprints, adding names and values to the parts, and naming unconnected wires to connect them. For 
-        the PCB layout, I learned about the different layers of the PCB, creating ground and power buses, adding vias,
-         ratsnest and auto-routing functions in EAGLE, and manual routing. I also learned how to run EAGLE’s Design Rule 
-         Check to ensure that a PCB is ready for manufacturing. Finally, I learned how to generate a bill of materials 
-         for the PCB components, as well as gerber files for fabrication.
-      </p>
-      <p>To practice using EAGLE, I converted a breadboard circuit of a 4-state finite state machine (FSM) that 
-        I made for one of my classes into a PCB design. 
-      </p>
-      <p>The two images below show the original FSM diagram, FSM state table, and breadboard circuit I made for one of 
-        my Digital System Design labs. The FSM is implemented in the circuit using a D-type flip flop IC, a 3-by-8 decoder IC, 
-        and a NAND gate IC. Digital I/O reading and writing is controlled by an external data acquisition device.</p>
-      <img src="att/fsm.PNG" style="width:90%">
-      <img src="att/fsm4.jpg" style="width:90%">
-      <p>Below is the circuit implemented as an EAGLE schematic and PCB design. A sliding switch is used to control the input for
-        the FSM, LEDs are used to indicate the current state ID, and a button switch is used to simulate each clock cycle.</p>
-      <img src="att/fsm2.PNG" style="width:94%">
-      <table>
-        <tr>
-          <td style="width:50%"><img src="att/fsm3.PNG" style="width:90%"></td>
-          <td><img src="att/fsm5.PNG" style="width:90%"></td>
-        </tr>
-      </table>
-      
-        <p>
-          Next semester, I plan to design my own PCB project and fabricate my own PCB at The Hive.
-        </p>
-        <h2>Arduino Projects</h2>
-        <h3>Temperature Sensor</h3>
-        <p>I built a waterproofed temperature sensor using a TMP36 thermistor and Arduino Nano.
-            I soldered the thermistor onto wires and covered the thermistor and its connecting
-            wires with conformal coating to waterproof the sensor so that it could be tested in 
-            water. Then, I calibrated the sensor by recording its readings in water with 
-            varying temperatures to obtain data points that allowed me to find a least-squares equation
-            relating voltage and temperature. I also added LEDs to indicate different temperature ranges.
-            This was my first time using Arduino and a breadboard, and I really enjoyed the project.
-        </p>
-        <a href="att/temp.jpg" target="_blank"><img title="Click to see enlarged in new window." src="att/temp.jpg" style="width:95%"></a>
-        <img src="att/tempgraph.png" style="width:60%">
+        </table>
+        
+          <p>
+            Next semester, I plan to design my own PCB project and fabricate my own PCB at The Hive.
+          </p>
+        </div>
+        <div class="inner-box" id="arduino">
+          <h2>Arduino Projects</h2>
+          <h3>Temperature Sensor</h3>
+          <p>I built a waterproofed temperature sensor using a TMP36 thermistor and Arduino Nano.
+              I soldered the thermistor onto wires and covered the thermistor and its connecting
+              wires with conformal coating to waterproof the sensor so that it could be tested in 
+              water. Then, I calibrated the sensor by recording its readings in water with 
+              varying temperatures to obtain data points that allowed me to find a least-squares equation
+              relating voltage and temperature. I also added LEDs to indicate different temperature ranges.
+              This was my first time using Arduino and a breadboard, and I really enjoyed the project.
+          </p>
+          <a href="att/temp.jpg" target="_blank"><img title="Click to see enlarged in new window." src="att/temp.jpg" style="width:95%"></a>
+          <img src="att/tempgraph.png" style="width:60%">
+        </div>
+       
+        
         
 	</div>
   </body>

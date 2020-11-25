@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cynthia Wang | Projects</title>
-	<script src="https://use.fontawesome.com/d1341f9b7a.js"></script> <link rel="stylesheet" href="style.css">
+	<script src="https://use.fontawesome.com/d1341f9b7a.js"></script> 
     <link href="../style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="../att/icon2.png">
   </head>
-  <body>
+  <body onload="setup()">
+    <script src="script.js"></script>
 	<div id="mySidenav" class="sidenav">
 		<a href="../index.html" class="unselected" id="home">Home</a>
 		<a href="../about/about.html" class="unselected" id="about">About</a>
@@ -23,7 +24,16 @@
 	<div class="box"> 
         <h1>Projects | Software</h1> 
         <hr>
-        <h2>Draw Your Way </h2>
+        <div class="tab">
+            <button class=" tablinks"  onclick="openFile(event, 'draw')" id="defaultOpen">Draw Your Way</button>
+            <button class=" tablinks" onclick="openFile(event, 'trick-or-treat')">Trick or Treat Near Me!</button>
+            <button class=" tablinks" onclick="openFile(event, 'visionary')">Visionary</button>
+            <button class=" tablinks" onclick="openFile(event, 'mot')">CS at MOT</button>
+        </div>
+        
+        
+        <div class="inner-box" id="draw">
+            <h2>Draw Your Way </h2>
             <h3>HackGT Hackathon | Overall Best in Emerging Track |
                 <a href="https://github.com/yu-pan-cpu/draw-your-way" target="_blank">
                     <i style="color: white" class="fa fa-github-square" aria-hidden="true">
@@ -44,9 +54,10 @@
             <p>I worked on the 2D visualization feature, which includes drag-and-drop functionality and
                 parsing the icons' relative locations for the share code.
             </p>
-            <p>Built using: Flutter, Firestore, Photoshop</p>
-            
-        <h2>Trick-or-Treat Near Me!</h2>
+            <p>Built using: Flutter, Firestore, Photoshop</p>    
+        </div>
+        <div class="inner-box" id="trick-or-treat">
+            <h2>Trick-or-Treat Near Me!</h2>
             <h3>Hack or Treat Hackathon | 
                 <a href="https://github.com/cwang360/hack-or-treat" target="_blank">
                     <i style="color: white" class="fa fa-github-square" aria-hidden="true">
@@ -75,7 +86,9 @@
             <p>I worked on UI design, navigation, and features for adding messages to locations.</p>
             <p>Built using: Google Maps API, Firestore, Flutter</p>
             
-        <h2> Visionary </h2>
+        </div>
+        <div class="inner-box" id="visionary">
+            <h2> Visionary </h2>
             <h3>TechTogether Boston Hackathon | 
                 <a href="https://github.com/cwang360/Visionary" target="_blank">
                     <i style="color: white" class="fa fa-github-square" aria-hidden="true">
@@ -104,7 +117,9 @@
                 Built using: Chrome Extension API, Google Custom Search JSON API, and HTML, CSS, 
                 JavaScript, JQuery, Speak.js for text-to-speech.
             </p>
-        <h2> Computer Science at MOT Charter HS </h2>
+        </div>
+        <div class="inner-box" id="mot">
+            <h2> Computer Science at MOT Charter HS </h2>
             <h3>High School Senior Capstone Project | 
                 <a href="https://github.com/cwang360/CS-SeniorCapstone" target="_blank">
                     <i style="color: white" class="fa fa-github-square" aria-hidden="true">
@@ -118,6 +133,11 @@
             <p>
                 Built using: HTML, CSS, JavaScript, Rellax JS library for parallax scrolling
             </p>
+        </div>
+
+       
+
+        
 		
 	</div>
   </body>
