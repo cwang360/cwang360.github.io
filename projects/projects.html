@@ -22,16 +22,39 @@
 		
 	</div>
 	<div class="box"> 
-        <h1>Projects | Software</h1> 
+        <h1>Projects | Hackathons</h1> 
         <hr>
         <div class="tab">
-            <button class=" tablinks"  onclick="openFile(event, 'draw')" id="defaultOpen">Draw Your Way</button>
+            <button class=" tablinks"  onclick="openFile(event, 'HealthAlert')" id="defaultOpen">Health Alert</button>
+            <button class=" tablinks"  onclick="openFile(event, 'draw')">Draw Your Way</button>
             <button class=" tablinks" onclick="openFile(event, 'trick-or-treat')">Trick or Treat Near Me!</button>
             <button class=" tablinks" onclick="openFile(event, 'visionary')">Visionary</button>
             <button class=" tablinks" onclick="openFile(event, 'mot')">CS at MOT</button>
         </div>
         
-        
+        <div class="inner-box" id="HealthAlert">
+            <h2>HealthAlert</h2>
+            <h3>HackUMass Hackathon | Grand Prize Winner |
+                <a href="https://github.com/cwang360/HealthAlert" target="_blank">
+                    <i style="color: white" class="fa fa-github-square" aria-hidden="true">
+                </i></a>
+            </h3>
+            <p>HealthAlert is a health wearable and app tailored to the elderly, people with dangerous health conditions, 
+                and people who suffer from memory loss. Many of our grandparents or parents may live alone, and their safety 
+                is our first priority. As people get older, they are more susceptible to dangerous health conditions and 
+                memory loss. HealthAlert helps them take care of themselves in different environments, like hot or humid 
+                climates, and immediately alert close family members through SMS if the wearable detects alarming events, 
+                like a seizure or fall.</p>
+            <p>See the Github repository linked above (Github icon) or watch the video below to learn about HealthAlert's
+                full capabilities.
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OLP-m2c8xx4" frameborder="0" allow="accelerometer; 
+            autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>I worked on creating and programming the physical device, sending/receiving data between the app and the Arduino through Bluetooth 
+                low energy, and training a model to classify between seizure-like tremors and normal movement.
+            </p>
+            <p>Built using: Flutter, Arduino, TensorFlow Lite, Google Colab</p>    
+        </div>        
         <div class="inner-box" id="draw">
             <h2>Draw Your Way </h2>
             <h3>HackGT Hackathon | Overall Best in Emerging Track |

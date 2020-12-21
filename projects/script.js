@@ -44,6 +44,9 @@ function smallWindow(x) {
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "block";
         }
+    }else{
+        openFile(event,'draw');
+        document.getElementById('defaultOpen').className += " active";
     } 
   }
   
